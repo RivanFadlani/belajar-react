@@ -7,6 +7,7 @@ import About from "./pages/About";
 import Product from "./pages/Product";
 import Seller from "./pages/Seller";
 import Customer from "./pages/Customer";
+import Data from "./pages/Data";
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
@@ -17,6 +18,7 @@ createRoot(document.getElementById("root")!).render(
         <Route path="/about" element={<About />} />
         {/* Menggunakan Nested Route */}
         <Route path="/data">
+          <Route index element={<Data />} /> {/* Halaman utama di (/data) */}
           <Route path="product" element={<Product />} />
           <Route path="seller" element={<Seller />} />
           <Route path="customer" element={<Customer />} />
