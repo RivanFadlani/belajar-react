@@ -14,6 +14,7 @@ import User from "./pages/User";
 import Address from "./pages/Address";
 import Image from "./pages/Image";
 import NotFound from "./pages/NotFound";
+import ProductSearch from "./pages/ProductSearch";
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
@@ -30,6 +31,7 @@ createRoot(document.getElementById("root")!).render(
         <Route path="/data" element={<DataLayout />}>
           <Route index element={<Data />} /> {/* Halaman utama di (/data) */}
           <Route path="product" element={<Product />} />
+          <Route path="product/search" element={<ProductSearch />} />
           <Route path="seller" element={<Seller />} />
           {/* /data/customer */}
           <Route path="customer">
