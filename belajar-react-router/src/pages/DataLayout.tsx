@@ -23,6 +23,18 @@ const DataLayout = () => {
         <li>
           <Link to="/data/customer">Customer</Link>
         </li>
+        {/* Link to dalam bentuk object */}
+        <li>
+          <Link
+            to={{
+              pathname: "/data/product",
+              search: "?category=shoes",
+              hash: "#top",
+            }}
+          >
+            Product
+          </Link>
+        </li>
       </div>
       <div>
         {/* Fungsinya kurang lebih mirip dengan React {children} */}
