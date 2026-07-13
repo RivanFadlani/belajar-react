@@ -1,4 +1,4 @@
-import { Outlet } from "react-router";
+import { Link, Outlet } from "react-router";
 
 const DataLayout = () => {
   return (
@@ -7,6 +7,22 @@ const DataLayout = () => {
         <h1>This is Navbar</h1>
         <p>Outlet Start</p>
         <hr />
+      </div>
+      <div>
+        <li>
+          {/* Navigation Link */}
+          {/* Alih-alih kita menggunakan anchor (<a>), kita harus menggunakan
+            <Link> bawaan react-router dengan attr 'to'
+            */}
+          {/* ini dilakukan karena anchor memiliki sifat reload ulang ketika pindah page  */}
+          <Link to="/data/product">Product</Link>
+        </li>
+        <li>
+          <Link to="/data/seller">Seller</Link>
+        </li>
+        <li>
+          <Link to="/data/customer">Customer</Link>
+        </li>
       </div>
       <div>
         {/* Fungsinya kurang lebih mirip dengan React {children} */}
