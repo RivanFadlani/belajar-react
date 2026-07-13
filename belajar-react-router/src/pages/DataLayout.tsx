@@ -1,4 +1,4 @@
-import { Link, Outlet } from "react-router";
+import { Link, NavLink, Outlet } from "react-router";
 
 const DataLayout = () => {
   return (
@@ -15,17 +15,18 @@ const DataLayout = () => {
             <Link> bawaan react-router dengan attr 'to'
             */}
           {/* ini dilakukan karena anchor memiliki sifat reload ulang ketika pindah page  */}
-          <Link to="/data/product">Product</Link>
+          <NavLink to="/data/product">Product</NavLink>
         </li>
         <li>
-          <Link to="/data/seller">Seller</Link>
+          {/* NavLink: digunakan untuk memberi class .active ketika url sama dengan pathname */}
+          <NavLink to="/data/seller">Seller</NavLink>
         </li>
         <li>
-          <Link to="/data/customer">Customer</Link>
+          <NavLink to="/data/customer">Customer</NavLink>
         </li>
         {/* Link to dalam bentuk object */}
         <li>
-          <Link
+          <NavLink
             to={{
               pathname: "/data/product",
               search: "?category=shoes",
@@ -33,7 +34,7 @@ const DataLayout = () => {
             }}
           >
             Product
-          </Link>
+          </NavLink>
         </li>
       </div>
       <div>
