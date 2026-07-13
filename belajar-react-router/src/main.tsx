@@ -12,6 +12,7 @@ import DataLayout from "./pages/DataLayout";
 import ProductDetail from "./pages/ProductDetail";
 import User from "./pages/User";
 import Address from "./pages/Address";
+import Image from "./pages/Image";
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
@@ -45,6 +46,8 @@ createRoot(document.getElementById("root")!).render(
           {/* Gunakan titik dua, diikuti dengan nama param */}
           {/* 'productId' dianggap sebagai parameter dinamis */}
           <Route path="product/:productId" element={<ProductDetail />} />
+          {/* Star Segment: tidak peduli seberapa panjang route, route-nya akan terbaca */}
+          <Route path="image/*" element={<Image />} />
         </Route>
       </Routes>
     </BrowserRouter>
