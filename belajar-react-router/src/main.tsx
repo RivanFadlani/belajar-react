@@ -9,6 +9,9 @@ import Seller from "./pages/Seller";
 import Customer from "./pages/Customer";
 import Data from "./pages/Data";
 import DataLayout from "./pages/DataLayout";
+import ProductDetail from "./pages/ProductDetail";
+import User from "./pages/User";
+import Address from "./pages/Address";
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
@@ -26,7 +29,22 @@ createRoot(document.getElementById("root")!).render(
           <Route index element={<Data />} /> {/* Halaman utama di (/data) */}
           <Route path="product" element={<Product />} />
           <Route path="seller" element={<Seller />} />
-          <Route path="customer" element={<Customer />} />
+          {/* /data/customer */}
+          <Route path="customer">
+            <Route index element={<Customer />} />
+            {/* /data/customer/user/id */}
+            <Route path="user/:userId">
+              <Route index element={<User />} />
+              {/* /data/customer/user/id/address/id */}
+              <Route path="address/:addressId">
+                <Route index element={<Address />} />
+              </Route>
+            </Route>
+          </Route>
+          {/* Route Param */}
+          {/* Gunakan titik dua, diikuti dengan nama param */}
+          {/* 'productId' dianggap sebagai parameter dinamis */}
+          <Route path="product/:productId" element={<ProductDetail />} />
         </Route>
       </Routes>
     </BrowserRouter>
