@@ -8,6 +8,7 @@ import Product from "./pages/Product";
 import Seller from "./pages/Seller";
 import Customer from "./pages/Customer";
 import Data from "./pages/Data";
+import DataLayout from "./pages/DataLayout";
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
@@ -17,7 +18,11 @@ createRoot(document.getElementById("root")!).render(
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
         {/* Menggunakan Nested Route */}
-        <Route path="/data">
+        {/* Wrapper tidak direkomendasikan dijadikan sebagai index router, 
+            karena wrapper biasanya digunakan untuk menyediakan struktur component
+            seperti navbar, header, atau footer
+          */}
+        <Route path="/data" element={<DataLayout />}>
           <Route index element={<Data />} /> {/* Halaman utama di (/data) */}
           <Route path="product" element={<Product />} />
           <Route path="seller" element={<Seller />} />
