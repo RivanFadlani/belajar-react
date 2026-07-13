@@ -13,6 +13,7 @@ import ProductDetail from "./pages/ProductDetail";
 import User from "./pages/User";
 import Address from "./pages/Address";
 import Image from "./pages/Image";
+import NotFound from "./pages/NotFound";
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
@@ -49,6 +50,8 @@ createRoot(document.getElementById("root")!).render(
           {/* Star Segment: tidak peduli seberapa panjang route, route-nya akan terbaca */}
           <Route path="image/*" element={<Image />} />
         </Route>
+        {/* Biasanya star segment digunakan untuk Not Found Page */}
+        <Route path="/*" element={<NotFound />} />
       </Routes>
     </BrowserRouter>
   </StrictMode>,
