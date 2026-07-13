@@ -15,10 +15,12 @@ createRoot(document.getElementById("root")!).render(
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
-        {/* Tanpa Nested Route */}
-        <Route path="/data/product" element={<Product />} />
-        <Route path="/data/seller" element={<Seller />} />
-        <Route path="/data/customer" element={<Customer />} />
+        {/* Menggunakan Nested Route */}
+        <Route path="/data">
+          <Route path="product" element={<Product />} />
+          <Route path="seller" element={<Seller />} />
+          <Route path="customer" element={<Customer />} />
+        </Route>
       </Routes>
     </BrowserRouter>
   </StrictMode>,
