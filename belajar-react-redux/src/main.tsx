@@ -19,7 +19,17 @@ createRoot(document.getElementById("root")!).render(
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<App />} />
-          <Route path="/counter" element={<Counter />} />
+          <Route
+            path="/counter"
+            element={
+              <>
+                {/* Berbeda dengan react state yang bisa menyimpan state berbeda per component yang sama.
+                di redux, state di store itu bersifat global, jadi semua state di component yang sama akan sinkron statenya*/}
+                <Counter />
+                <Counter />
+              </>
+            }
+          />
         </Routes>
       </BrowserRouter>
     </Provider>
