@@ -8,5 +8,12 @@ import { createSlice } from "@reduxjs/toolkit";
 export const counterSlice = createSlice({
   name: "counter",
   initialState: 0,
-  reducers: {},
+  reducers: {
+    // property ini akan dipanggil sebagai action
+    increment: (state) => state + 1,
+    decrement: (state) => state - 1,
+  },
 });
+
+// destructuring reducer dari slice.action
+export const { increment, decrement } = counterSlice.actions;
