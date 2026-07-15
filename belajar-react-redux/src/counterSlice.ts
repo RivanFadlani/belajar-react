@@ -32,7 +32,18 @@ export const counterSlice = createSlice({
       }
     },
   },
+  // selector
+  // action itu untuk memanipulasi state, sedangkan selector untuk mengambil data si state
+  selectors: {
+    getDoubleCounter: (state) => {
+      return state * 2;
+    },
+    getTriple: (state, value) => {
+      return state * value;
+    },
+  },
 });
 
 // destructuring reducer dari slice.action
 export const { increment, decrement } = counterSlice.actions;
+export const { getDoubleCounter, getTriple } = counterSlice.selectors;

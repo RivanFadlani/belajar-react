@@ -1,6 +1,11 @@
 import { useDispatch, useSelector } from "react-redux";
 import type { RootState } from "./store";
-import { decrement, increment } from "./counterSlice";
+import {
+  decrement,
+  getDoubleCounter,
+  getTriple,
+  increment,
+} from "./counterSlice";
 
 const Counter = () => {
   // 1. panggil useSelector untuk membaca state.counter dari Redux store
@@ -20,9 +25,14 @@ const Counter = () => {
     dispatch(decrement(1));
   };
 
+  const doubleCounter = useSelector(getDoubleCounter);
+  const tripleCounter = useSelector((state: RootState) => getTriple(state, 3));
+
   return (
     <div>
       <h1>Counter: {counter}</h1>
+      <h2>Double Counter: {doubleCounter}</h2>
+      <h2>Triple Counter: {tripleCounter}</h2>
       <button onClick={handleIncrement}>Increment +++</button>
       <button onClick={() => dispatch(increment(3))}>Increment +3</button>
       <button onClick={handleDecrement}>Decrement +++</button>
