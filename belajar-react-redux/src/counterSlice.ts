@@ -10,8 +10,27 @@ export const counterSlice = createSlice({
   initialState: 0,
   reducers: {
     // property ini akan dipanggil sebagai action
-    increment: (state) => state + 1,
-    decrement: (state) => state - 1,
+    /* kalau pada saat useDispatch() increment mengirim argument 'dispatch(increment(2))',
+     * maka argument itu akan dianggap sebagai payload dari action.
+     * maka reducer dari increment juga akan berubah parameternya (state, action)
+     * - state = untuk menyimpan state saat ini
+     * - payload = untuk membawa data yang akan disimpan ke state
+     * *kurang lebih caranya sama seperti reducer react
+     * */
+    increment: (state, action) => {
+      if (action.payload) {
+        return state + action.payload;
+      } else {
+        return state + 1;
+      }
+    },
+    decrement: (state, action) => {
+      if (action.payload) {
+        return state - action.payload;
+      } else {
+        return state - 1;
+      }
+    },
   },
 });
 

@@ -13,18 +13,20 @@ const Counter = () => {
   // buat handle function
   const handleIncrement = () => {
     // panggil action dari counterSlice (slice)
-    dispatch(increment());
+    dispatch(increment(1));
   };
 
   const handleDecrement = () => {
-    dispatch(decrement());
+    dispatch(decrement(1));
   };
 
   return (
     <div>
       <h1>Counter: {counter}</h1>
       <button onClick={handleIncrement}>Increment +++</button>
+      <button onClick={() => dispatch(increment(3))}>Increment +3</button>
       <button onClick={handleDecrement}>Decrement +++</button>
+      <button onClick={() => dispatch(decrement(3))}>Decrement -3</button>
     </div>
   );
 };
