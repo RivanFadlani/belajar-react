@@ -4,18 +4,22 @@ import "./index.css";
 import { Provider } from "react-redux";
 import { BrowserRouter, Route, Routes } from "react-router";
 import App from "./App";
-import { configureStore } from "@reduxjs/toolkit";
+import { store } from "./store";
+import Counter from "./Counter";
 
-const store = configureStore({
-  reducer: {},
-});
-
+// 1. createRoot mengambil elemen DOM #root sebagai tempat render React
+// 2. StrictMode mengaktifkan deteksi masalah di development
+// 3. Provider menyediakan Redux store ke seluruh komponen di dalamnya
+// 4. BrowserRouter mengaktifkan routing client-side
+// 5. Routes mendefinisikan daftar route yang tersedia
+// 6. Route "/" menampilkan App, Route "/counter" menampilkan Counter
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
     <Provider store={store}>
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<App />} />
+          <Route path="/counter" element={<Counter />} />
         </Routes>
       </BrowserRouter>
     </Provider>
