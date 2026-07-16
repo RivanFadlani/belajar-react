@@ -21,7 +21,7 @@ const todoSlice = createSlice({
       state.push({ id: nanoid(), name });
     },
     // cara lain destructuring action
-    removeTodo: (state, { payload: id }) => {
+    removeTodo: (state, { payload: { id } }) => {
       const index = state.findIndex((state) => state.id === id); // mengembalikan number (index)
       if (index !== -1) state.splice(index, 1);
     },
